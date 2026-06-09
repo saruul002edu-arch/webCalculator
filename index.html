@@ -11,7 +11,8 @@
         <input type="text" class="display" id="display" value="0" readonly>
 
         <div class="buttons">
-            <button class="function buttonbig" onclick="clearDisplay()">C</button>
+            <button class="function" onclick="appenValue('(')">(</button>
+            <button class="function" onclick="appenValue(')')">)</button>
             <button class="function" onclick="toggleSign()">+/-</button>
             <button class="operator" onclick="appenValue('/')">/</button>
 
@@ -32,7 +33,8 @@
 
             <button class="number" onclick="appenValue('0')">0</button>
             <button class="number" onclick="appenValue('.')">.</button>
-            <button class="operator buttonbig" onclick="calculate()">=</button>
+            <button class="operator" onclick="calculate()">=</button>
+            <button class="function" onclick="clearDisplay()">C</button>
         </div>
     </div>
     <script src="assets/js/main.js"></script>
