@@ -9,14 +9,16 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: grey;
+    background-color: rgb(55, 55, 55);
     margin: 0;
 }
 
 .calculator {
     background-color: #FEEBE7;
+    border-color: #F87C63;
+    border-width: 10px;
     padding: 25px;
-    box-shadow: o 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: o 10px 30px rgb(0, 0, 0, 0.3);
     border-radius: 15px;
     width: 400px;
 }

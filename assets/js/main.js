@@ -1,27 +1,58 @@
-const display = document.getElementById('display');
+let display = document.getElementById('display');
+let currentInput = '0';
+let shouldResetDisplay = false;
 
-function appendValue(value) {
-    if (value === '.') {
-        if (display.value.includes('.')){
-            return;
-        }
+function updateDisplay(value) {
+    display.value = value;
+}
+
+function appenValue(value) {
+    if (shouldResetDisplay) {
+        currentInput = '';
+        shouldResetDisplay = false;
     }
 
-    if(display.value === '0' && value !== '.'){
-        display.value = value;
+    if (currentInput === '0' && value !== '.') {
+        currentInput = value;
     } else {
-        display.value +=value;
+        currentInput += value;
     }
+
+    updateDisplay(currentInput);
 }
 
-function clearDisplay(){
-    display.value = '0';
+function clearDisplay() {
+    currentInput = '0';
+    shouldResetDisplay = false;
+    updateDisplay(currentInput);
 }
 
-function calculate(){
+function calculate() {
     try {
-        display.value = eval(display.value);
-    } catch (error) {
-        display.value = 'ERROR!';
+        let result = eval(currentInput);
+
+        if (!isFinite(result)) {
+            updateDisplay('Error');
+            currentInput = '0';
+        } else {
+            currentInput = String(parseFloat(result.toFixed(10)));
+            updateDisplay(currentInput);
+        }
+    } catch (e) {
+        updateDisplay('Error');
+        currentInput = '0';
+    }
+
+    shouldResetDisplay = true;
+}
+
+function toggleSign() {
+    if (currentInput !== '0') {
+        if (currentInput.startsWith('-')) {
+            currentInput = currentInput.slice(1);
+        } else {
+            currentInput = '-' + currentInput;
+        }
+        updateDisplay(currentInput);
     }
 }
