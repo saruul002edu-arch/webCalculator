@@ -83,10 +83,6 @@ button:active {
     box-shadow: 0 4px 0 #d8b4fe, 0 6px 10px rgba(233, 213, 255, 0.4);
 }
 
-.buttonbig {
-    grid-column: span 2;
-}
-
 button[onclick="calculate()"] {
     background: #f472b6;
     color: #fff;
